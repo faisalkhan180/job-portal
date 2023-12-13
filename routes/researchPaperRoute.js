@@ -5,12 +5,12 @@ const Router = express.Router();
 
 Router.post("/addResearchPaper", 
 [
-    check('title_of_research').notEmpty(),
-    check('name_of_journal').notEmpty(),
-    check('issn_no').notEmpty(),
-    check('page_no').notEmpty(),
-    check('publication_date').isDate().notEmpty(),
-    check('co_author').notEmpty()
+    check('title_of_research', "add title please").notEmpty(),
+    check('name_of_journal', "name of journal should be provided").notEmpty(),
+    check('issn_no', "add issn number please" ).notEmpty(),
+    check('page_no', "page number should not be emply").notEmpty(),
+    check('publication_date', "please provide publication date").isDate().notEmpty(),
+    check('co_author', "add co-author").notEmpty()
 ], async(req, res)=>{
     const {
         applicantId,
