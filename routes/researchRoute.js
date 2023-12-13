@@ -6,9 +6,9 @@ const Router = express.Router();
 Router.post(
   "/addResearch",
   [
-    check("research_name").notEmpty(),
-    check("institution_name").notEmpty(),
-    check("professor_name").notEmpty(),
+    check("research_name", "name of research should be provided").notEmpty(),
+    check("institution_name", "institute name should not be empty").notEmpty(),
+    check("professor_name", "please provide professor name").notEmpty(),
   ],
   async (req, res) => {
     const { applicantId, research_name, institution_name, professor_name } =
